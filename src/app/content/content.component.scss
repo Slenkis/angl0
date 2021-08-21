@@ -1,0 +1,142 @@
+:host {
+  display: flex;
+  //background-color: #72a7cb;
+  background-color: #fefefe;
+}
+
+.left-menu {
+  width: 20%;
+  height: 100vh;
+  font-size: 1.3rem;
+
+  .controls {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-size: 1.3rem;
+    }
+
+    input, button {
+      font-size: inherit;
+      border: 0;
+      outline: none;
+      height: 2rem;
+    }
+
+    .form-control {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0.3rem;
+
+      input {
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+        width: 75%;
+        border: 2px solid #000;
+
+        &.ng-invalid.ng-touched {
+          border: 2px solid #cb293d;
+        }
+
+        &.ng-valid.ng-touched {
+          border: 2px solid #37b735;
+        }
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+        }
+      }
+
+      .validation {
+        color: #ff2839;
+        font-size: 1.2rem;
+      }
+    }
+
+    button {
+      margin-top: 0.5rem;
+      max-width: 5rem;
+      flex: 1 0 auto;
+      background-color: #2b2e3d;
+      color: #fefefe;
+    }
+
+    button:hover {
+      background-color: #5581a9;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    button[disabled] {
+      color: #dedede;
+      background-color: #a4a4a9;
+      cursor: default;
+    }
+  }
+
+  .profiles {
+    height: 50vh;
+    overflow-y: auto;
+    background-color: #aedcff;
+    border-top: #5581a9 solid 0.2rem;
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      .profile {
+        border-bottom: #84b6dc solid 2px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0.5rem;
+
+        & .hidden-by-default {
+          display: none;
+        }
+
+        &:hover .hidden-by-default {
+          display: block;
+        }
+      }
+    }
+
+    li:hover {
+      background-color: #84b6dc;
+      cursor: pointer;
+    }
+  }
+}
+
+.wrap {
+  background-color: #94bedc;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  border-left: #5581a9 solid 0.2rem;
+
+  .photos-grid {
+    overflow-y: auto;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding-right: 2px;
+
+    img {
+      height: 200px;
+      width: 200px;
+      border: transparent solid 2px;
+      object-fit: cover;
+    }
+
+    img:hover {
+      border: #bf1a3e solid 2px;
+      cursor: pointer;
+    }
+  }
+}

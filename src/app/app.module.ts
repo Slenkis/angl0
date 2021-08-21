@@ -1,22 +1,24 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-
+import {HttpClientModule} from '@angular/common/http';
 import {AppComponent} from './app.component';
-import {FormsModule} from "@angular/forms";
-import {ControlsComponent} from './controls/controls.component';
-import {ProfilesComponent} from './profiles/profiles.component';
-import {PhotosComponent} from './photos/photos.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ContentComponent} from './content/content.component';
+import {TestComponent} from './test/test.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
     AppComponent,
-    ControlsComponent,
-    ProfilesComponent,
-    PhotosComponent,
+    ContentComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,28 +1,7 @@
-* {
+:host {
+  //display: flex;
   background-color: #84b6dc;
-}
-
-.container {
-  display: flex;
-}
-
-.left-menu {
-  width: 20%;
-  height: 100vh;
-  font-size: 1.4rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.content {
-  display: flex;
-  flex: 1;
-  justify-content: center;
-
-  height: 100vh;
-  overflow-y: auto;
-  border-left: #5581a9 solid 0.2rem;
-  background-color: #72a7cb;
+  font-family: Arial, sans-serif;
 }
 
 

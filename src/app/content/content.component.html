@@ -1,0 +1,74 @@
+<div class="left-menu">
+  <form
+    class="controls"
+    [formGroup]="form"
+    (ngSubmit)="addProfile(form.get('id')?.value, form.get('name')?.value)"
+  >
+    <div class="form-control">
+      <label>Id</label>
+      <input
+        type="number"
+        placeholder="Id"
+        formControlName="id"
+      >
+      <div
+        *ngIf="form.get('id')?.invalid && form.get('id')?.touched"
+        class="validation"
+      >
+        <small *ngIf="form.get('id')?.errors?.required">Поле не может быть пустым</small>
+        <small *ngIf="form.get('id')?.errors?.pattern">Поле содержит неправильный ID</small>
+      </div>
+    </div>
+    <div class="form-control">
+      <label>Name</label>
+      <input
+        type="text"
+        placeholder="Name"
+        formControlName="name"
+      >
+      <div
+        *ngIf="form.get('name')?.invalid && form.get('name')?.touched"
+        class="validation"
+      >
+        <small *ngIf="form.get('name')?.errors?.required">Поле не может быть пустым</small>
+        <small *ngIf="form.get('name')?.errors?.pattern">Поле содержит недопустимые символы</small>
+      </div>
+    </div>
+    <button class="controls-btn" type="submit" [disabled]="form.invalid">+</button>
+
+    <button>reload</button>
+  </form>
+
+  <div class="profiles">
+    <ul>
+      <li
+        [@profileAnimation]
+        *ngFor="let profile of profiles; trackBy: identify"
+      >
+        <div
+          (click)="loadPhotos(profile.id, 0)"
+          class="profile"
+        >
+          <div
+            class="profile-info"
+          >
+            {{profile.name}}
+          </div>
+          <button
+            class="hidden-by-default"
+            (click)="deleteProfile(profile.id)"
+          >X
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="wrap">
+  <div class="photos-grid">
+    <img
+      (click)="openPhoto(photo.id)"
+      *ngFor="let photo of photos"
+      src="{{photo.url}}" alt="">
+  </div>
+</div>
